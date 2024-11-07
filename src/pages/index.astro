@@ -1,0 +1,77 @@
+---
+globalThis.counter = 0;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <script src="https://unpkg.com/htmx.org@1"></script>
+    <link rel="stylesheet" href="../../css/style.css" />
+    <title>Counter 2</title>
+  </head>
+  <body
+ 	x-data="{ counter: 0 }" 
+  >
+    
+	<div class="container">
+      
+	  <div class="sub-container">
+        <h1>Counter Test 2</h1>
+        <p>by NimiraTech</p>
+        <p>Using Astro, HTMX and Astro</p>
+        
+		<div 
+		  class="counter" 
+		  id="alp-counter" 
+		  x-text="counter"
+		>
+		</div>
+		
+		<div>
+		  <button
+			class="counter-btn"
+			x-on:click="counter += 1"
+		  >
+			Add
+		  </button>
+		  <button
+			class="counter-btn"
+			x-on:click="counter -= 1"
+		 >
+			Sub
+		 </button>
+		</div> 
+		
+		<div class="htmx">
+		  <h2>Last Saved Counter Value</h2>
+		  <div id="lastSavedCounter" class="lastSavedCounter"></div>
+		</div>
+		
+		<form 
+		  class="htmx-form"
+		  hx-post="/api/save/" 
+		  hx-target="#lastSavedCounter"
+		>
+		  <input 
+		  	type="hidden" 
+			class="htmx-input"
+		  	name="counter"
+			x-model="counter"
+		  >
+		  <button 
+			class="counter-btn"
+			type="submit"
+		  >
+			Submit
+		</button>
+		</form>
+      
+	  </div>
+    
+	</div>
+
+  </body>
+</html>
