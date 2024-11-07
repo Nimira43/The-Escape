@@ -1,5 +1,6 @@
 ---
-globalThis.counter = 0;
+import { LocalStorage } from 'node-localstorage'
+globalThis.localStorage = new LocalStorage('./data');
 ---
 
 <html lang="en">
