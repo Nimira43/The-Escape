@@ -14,12 +14,18 @@ globalThis.localStorage = new LocalStorage('./data');
     <title>The Escape</title>
   </head>
   <body>
-		<div class="container">
-			<div class="sub-container">
-				<h1>The Escape</h1>
-				<a href="/rooms/3rd-floor-start">Begin</a>
+    <h1>The Escape</h1>
+		<div id="pages">
+			<div id="start-page">
+				<button
+          class="btn"
+          hx-get="/rooms/3rd-floor-start"
+          hx-push-url="true"
+          hx-target="#start-page"
+        >
+          Begin
+        </button>
 			</div>
 		</div>
-		
   </body>
 </html>
