@@ -3,29 +3,38 @@ import { LocalStorage } from 'node-localstorage'
 globalThis.localStorage = new LocalStorage('./data');
 ---
 
-<html lang="en">
+<html lang='en'>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <script src="https://unpkg.com/htmx.org"></script>
-		<link rel="icon" type="image/png" href="/billy.png">
-    <link rel="stylesheet" href="../../css/style.css" />
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width' />
+    <meta name='generator' content={Astro.generator} />
+    <script src='https://unpkg.com/htmx.org'></script>
+		<link rel='icon' type='image/png' href='/billy.png'>
+    <link rel='stylesheet' href='../../css/style.css' />
     <title>The Escape</title>
   </head>
   <body>
     <h1>The Escape</h1>
-		<div id="pages">
-			<div id="start-page">
-				<button
-          class="btn"
-          hx-get="/rooms/3rd-floor-start"
-          hx-push-url="true"
-          hx-target="#start-page"
+		<div 
+      id='pages'
+			x-data={`{
+        playerId: undefined,
+        init() {
+          this.player.Id = (Date.now() * Math.random()).toString()
+          document.cookie = "playerId" + this.playerId
+        }
+      }`}
+    >
+      <div x-text='playerId'></div>
+      <div id='start-page'>
+        <button
+          class='btn'
+          hx-get='/rooms/3rd-floor-start'
+          hx-target='#start-page'
         >
           Begin
         </button>
-			</div>
-		</div>
+      </div>
+    </div>
   </body>
 </html>
