@@ -1,6 +1,7 @@
 ---
-import { LocalStorage } from 'node-localstorage'
-globalThis.localStorage = new LocalStorage('./data');
+// import { LocalStorage } from 'node-localstorage'
+import Start from './start.astro'
+// globalThis.localStorage = new LocalStorage('./data');
 ---
 
 <html lang='en'>
@@ -25,16 +26,7 @@ globalThis.localStorage = new LocalStorage('./data');
         }
       }`
     >
-      <div x-text='playerId'></div>
-      <div id='start-page'>
-        <button
-          class='btn'
-          hx-get='/rooms/3rd-floor-start'
-          hx-target='#start-page'
-        >
-          Begin
-        </button>
-      </div>
+      <Start />
     </div>
   </body>
 </html>
