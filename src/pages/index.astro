@@ -17,13 +17,13 @@ globalThis.localStorage = new LocalStorage('./data');
     <h1>The Escape</h1>
 		<div 
       id='pages'
-			x-data={`{
+			x-data=`{
         playerId: undefined,
         init() {
-          this.player.Id = (Date.now() * Math.random()).toString()
-          document.cookie = "playerId" + this.playerId
+          this.playerId = (Date.now() * Math.random()).toString()
+          document.cookie = 'playerId' + this.playerId
         }
-      }`}
+      }`
     >
       <div x-text='playerId'></div>
       <div id='start-page'>
