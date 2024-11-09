@@ -1,5 +1,7 @@
 ---
 export const partial = true
+const playerId = Astro.cookies.get('playerId')?.value
+console.log(playerId)
 ---
 
 <div id='game-start'>
